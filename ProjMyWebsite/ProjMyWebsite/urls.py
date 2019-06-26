@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^aboutme/', include('AppAboutMe.urls')),
     url(r'^samples/', include('AppSamples.urls')),
     url(r'^contact/', include('AppContact.urls')),
+    url(r'^todolist/', include('AppToDo.urls')),
 ]
