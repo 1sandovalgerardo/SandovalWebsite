@@ -4,5 +4,5 @@ from AppToDo import views
 
 app_name = 'todolist'
 
-urlpatterns = [url(r'^$', views.ToDoList.as_view(), name='todolist'),
+urlpatterns = [url(r'^$', views.ToDoListView, name='todolist'),
                ]

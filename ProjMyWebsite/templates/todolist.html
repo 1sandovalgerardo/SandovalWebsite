@@ -1,5 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-to do list
+<div class="container">
+  to do list
+  <form class="form my-2" method='POST'>
+    {% csrf_token %}
+      <input type="search" class="form-control" placeholder="Add Task"
+        aria-label="Search" name="newtask">
+      <br>
+      <button class="btn btn-secondary" type="submit" name="button">Add Task</button>
+      <!-- <small id="taskmessage" class="form-text text-muted">Enter a new task.</small> -->
+  </form>
+    </div>
+</div>
+<div class="container">
+  {{newview}}
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-info" role="alert">
+        <button class="close" type="button" name="button" data-dismiss="alert">
+          <small><sup>X</sup></small>
+        </button>
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  {% if all_items %}
+    debug 1
+    {% for things in all_items %}
+      debug 2
+      {{ things.item }} | {{ things.completed}}
+    {% endfor %}
+  {% endif %}
+</div>
 {% endblock %}
