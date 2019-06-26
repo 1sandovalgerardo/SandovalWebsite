@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'AppAboutMe',
     'AppIndex',
     'AppSamples',
+    'AppContact',
 ]
 
 MIDDLEWARE = [
@@ -123,4 +124,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [STATIC_DIR,]
-
