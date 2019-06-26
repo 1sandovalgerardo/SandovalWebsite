@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-4">Welcome to my site!</h1>
+    <div class="row">
+      <div class="col-sm-4">
+        <img src="{% static 'profilepic.jpg'%}" alt="image could not load" style="width:200px;height:300px;">
+      </div>
+      <div class="col-6">
+        <p class="lead">I have been an investment advisor for the last 10 years.
+          While the roles did include investment analysis and recomendations on a daily basis,
+          the compensation was always based on sales. I am now looking to transition away from sales
+          into a technical role with the python, html, css, and javascript skills i have learned YTD.</p>
+        <p class="lead">My responsibilites have included:
+            <ul class="lead">
+              <li>Creating seven fund of funds using daily liquid
+            vehicles(mutual funds, etf's, etc) and alternative investments (managed futures, some hedge funds).</li>
+              <li>Develop a manager due-diligence process.</li>
+              <li>Conducted investment proposals, reviews, and presentations to HNWF, UHNWF< and Finance Committess.</li>
+            </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+  <hr class="my-4">
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse"
+          data-target="#resume" aria-expanded="true" aria-controls="collapseOne"
+          style="color:grey">
+            Resume
+          </button>
+        </h2>
+      </div>
+      <div id="resume" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>
+            <button class="btn btn-secondary" type="button" data-toggle='collapse'
+            data-target='#ubs' aria-expanded='false' aria-controls='collapseExample' name="button">
+            UBS
+            </button>
+            <button class="btn btn-secondary" type="button" data-toggle='collapse'
+            data-target='#jpm' aria-expanded='false' aria-controls='collapseExapmle' name="button">
+            JPM Private Bank
+            </button>
+            <button class="btn btn-secondary" type="button" data-toggle='collapse'
+            data-target='#ml' aria-expanded='false' aria-controls='collapseExapmle' name="button">
+            Merrill Lynch
+            </button>
+          </p>
+          <div class="collapse" id="ubs">
+            <div class="card card-body">
+              <ul>
+                <li>Contributed in growing practice from 40MM AUM to over 95MM AUM by providing
+                in-depth needs based analysis.</li>
+                <li>Developed the group’s methods for analyzing and selecting asset managers.</li>
+                <li>Performed due-diligence and ongoing monitoring of equity
+                  managers (long only, long short, domestic, international),
+                  fixed income managers (traditional bond managers, flexible mandate managers,
+                   international FI managers, long short credit), and alternative managers
+                   (managed futures, market neutral, global macro strategies, event driven, etc).</li>
+                <li>Analyzed portfolios to determine methods of decreasing portfolio volatility,
+                  drawdown, and correlations to various assets classes; thus, improving portfolio efficiency.</li>
+                <li>Presented to and educated finance committees on investment themes, methods, and rational. </li>
+                <li>Monitored markets to determine entry and exit points of portfolio positions.</li>
+                <li>Generated, presented, and sold fixed income trade ideas that were responsible for 30% of team’s revenue.</li>
+                <li>Used FI360 for benchmarking our DC Plans as part of our ongoing due diligence process.</li>
+                <li>Used Zephyr for ongoing due-diligence of funds within our DC Plans.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="collapse" id="jpm">
+            <div class="card card-body">
+              <ul>
+                <li>Responsible for a book of over 150MM in client positions.</li>
+                <li>Developed investment policy statements for our client’s. </li>
+                <li>Increased revenue 15% by developing new business using our investments, lending, and deposit platforms.</li>
+                <li>Created Goal Based Wealth Management Plans for clients using software that includes Monte Carlo based technology.</li>
+                <li>Communicated the latest research, white papers, and investment themes to clients.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="collapse" id="ml">
+            <div class="card card-body">
+              <ul>
+                <li>Educated small business owners on Merrill Edge’s retirement plan solutions (401ks, Simple IRA, SEPs).</li>
+                <li>Educated investors on investment topics including but not limited to: margin, fixed income, trade process,
+                bid-ask, options, spreads, etc. </li>
+                <li>Uncover needs that can be met using BofA’s vast offering of client solutions by using a service to sale dialogue model.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+          data-target="#aboutme" aria-expanded="false" aria-controls="collapseTwo"
+          style="color:grey">
+            Beyond the Office
+          </button>
+        </h2>
+      </div>
+      <div id="aboutme" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>I live in Elmwood Park with my wife Amy and son Sebastian.
+            I enjoy mountain biking, any aquatic sport, and jiu-jitsu.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <p class="lead">
+    <!-- <a class="btn btn-secondary btn-lg" href="#" role="button">Learn more</a> -->
+  </p>
+</div>
+
+
+
+
+
+{% endblock %}
