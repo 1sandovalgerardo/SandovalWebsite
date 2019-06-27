@@ -31,7 +31,6 @@
           {% for things in all_items %}
             <tr>
             <td>{{ things.item }}</td>
-            <td>{{things.id }}</td>
             <td> <center> {{ things.completed }}</center></td>
             <td><center> <a href="{% url 'todolist:delete' pk=things.id %}"> Delete</a></center></td>
             </tr>

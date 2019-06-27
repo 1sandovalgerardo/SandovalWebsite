@@ -20,5 +20,6 @@ def Delete(request, pk):
     item = List.objects.get(pk=pk)
     item.delete()
     messages.success(request, ('Item has been deleted'))
-    return render(request, 'todolist.html')
+    return redirect('/todolist')
+#    return render(request, 'todolist.html')
 
