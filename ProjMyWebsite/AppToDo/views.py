@@ -16,3 +16,9 @@ def ToDoListView(request):
         all_items = List.objects.all
         return render(request, 'todolist.html', {'all_items': all_items})
 
+def Delete(request, pk):
+    item = List.objects.get(pk=pk)
+    item.delete()
+    messages.success(request, ('Item has been deleted'))
+    return render(request, 'todolist.html')
+
