@@ -29,11 +29,19 @@
         </thead>
         <tbody>
           {% for things in all_items %}
-            <tr>
-            <td>{{ things.item }}</td>
-            <td> <center> {{ things.completed }}</center></td>
-            <td><center> <a href="{% url 'todolist:delete' pk=things.id %}"> Delete</a></center></td>
-            </tr>
+            {% if things.completed %}
+              <tr class="table-secondary">
+              <td class="striker">{{ things.item }}</td>
+              <td><center> <a href="{% url 'todolist:uncross' pk=things.id %}">Uncross</a> </center></td>
+              <td><center> <a href="{% url 'todolist:delete' pk=things.id %}"> Delete</a></center></td>
+              </tr>
+            {% else %}
+              <tr>
+              <td> <a href="{% url 'todolist:edit' pk=things.id %}">{{ things.item }}</a></td>
+              <td><center> <a href="{% url 'todolist:cross_off' pk=things.id %}">Cross Off</a> </center></td>
+              <td><center> <a href="{% url 'todolist:delete' pk=things.id %}"> Delete</a></center></td>
+              </tr>
+            {% endif %}
           {% endfor %}
         </tbody>
     </table>
