@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'AppSamples',
     'AppContact',
     'AppToDo',
+    'AppBlog',
 ]
 
 MIDDLEWARE = [
