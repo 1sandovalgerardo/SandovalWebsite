@@ -5,4 +5,4 @@ from AppBlog import views
 
 app_name = 'blog'
 
-urlpatterns = [r'^$', views.BlogView.as_view(), name='blog']
+urlpatterns = [url(r'^$', views.BlogView.as_view(), name='blog')]
