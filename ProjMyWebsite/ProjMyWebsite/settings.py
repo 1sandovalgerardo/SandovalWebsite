@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'AppIndex',
     'AppSamples',
     'AppContact',
+    'AppToDo',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+  {% if item %}
+  <div class="container">
+
+    <form class="form my-2 my-lg-0" method="POST">
+      {% csrf_token %}
+      <input class="form-control mr-sm-2" type="text" placeholder="{{ item.item }}"
+        value="{{item.item}}" aria-lable="Search" name="item">
+      <input type="hidden" value="{{ item.completed }}" name="completed">
+      <br>
+      <button class="btn btn-secondary" type="submit">Enter</button>
+      <button class="btn btn-secondary " type="button" value="Cancel">
+        <a href="{% url 'todolist:todolist' %}" style="color:white">Cancel</a></button>
+
+    </form>
+  </div>
+  {% endif %}
+
+</div>
+{% endblock %}
