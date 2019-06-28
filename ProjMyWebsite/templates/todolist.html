@@ -2,12 +2,13 @@
   {% block content %}
   <div class="container">
 
-    <form class="form-inline my-2 my-lg-0" method="POST">
+    <form class="form my-2 my-lg-0" method="POST">
       {% csrf_token %}
       <input class="form-control mr-sm-2" type="search" placeholder="Add Item" aria-label="Search"
-      name="item">
+      name="item" maxlength="75"><br>
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Add to List</button>
     </form>
+    <br>
 
     {% if messages %}
       {% for message in messages %}
@@ -24,7 +25,9 @@
           <tr>
             <th scope="col">Task</th>
             <th scope="col"><center>Completed</center></th>
-            <th scope="col"></th>
+            <th scope="col"><center>Edit Task</center></th>
+            <th scope="col"><center>Delete Task</center></th>
+
           </tr>
         </thead>
         <tbody>
@@ -32,13 +35,15 @@
             {% if things.completed %}
               <tr class="table-secondary">
               <td class="striker">{{ things.item }}</td>
-              <td><center> <a href="{% url 'todolist:uncross' pk=things.id %}">Uncross</a> </center></td>
+              <td><center> <a href="{% url 'todolist:uncross' pk=things.id %}">Yes</a> </center></td>
+              <td><center> <a href="{% url 'todolist:edit' pk=things.id %}">Edit</a> </center></td>              
               <td><center> <a href="{% url 'todolist:delete' pk=things.id %}"> Delete</a></center></td>
               </tr>
             {% else %}
               <tr>
-              <td> <a href="{% url 'todolist:edit' pk=things.id %}">{{ things.item }}</a></td>
-              <td><center> <a href="{% url 'todolist:cross_off' pk=things.id %}">Cross Off</a> </center></td>
+              <td> {{ things.item }}</td>
+              <td><center> <a href="{% url 'todolist:cross_off' pk=things.id %}">No</a> </center></td>
+              <td><center> <a href="{% url 'todolist:edit' pk=things.id %}">Edit</a> </center></td>
               <td><center> <a href="{% url 'todolist:delete' pk=things.id %}"> Delete</a></center></td>
               </tr>
             {% endif %}

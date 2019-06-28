@@ -1,18 +1,22 @@
 from django.shortcuts import render, redirect
-from .models import List
-from .forms import ListForm
+from AppToDo.models import List
+from AppToDo.forms import ListForm
 from django.contrib import messages
 
 
 def ToDoListView(request):
+    form = ListForm()# this line might not be needed.
     if request.method == "POST":
-        form = ListForm(request.POST)
+        form = ListForm(request.POST or None)
 
         if form.is_valid():
             form.save()
             all_items = List.objects.all
             messages.success(request, ('Item Added'))
             return render(request, 'todolist.html', {'all_items': all_items})
+        else:
+             messages.error(request, "Please enter a task")
+             return redirect('/todolist')
     else:
         all_items = List.objects.all
         return render(request, 'todolist.html', {'all_items': all_items})
@@ -21,7 +25,7 @@ def ToDoListView(request):
 def Edit(request, pk):
     if request.method == 'POST':
         item = List.objects.get(pk=pk)
-        form = ListForm(request.POST, instance=item)
+        form = ListForm(request.POST or None, instance=item)
         if form.is_valid():
             form.save()
             messages.success(request, ('Item has been changed'))
@@ -32,10 +36,13 @@ def Edit(request, pk):
 
 
 def Delete(request, pk):
-    item = List.objects.get(pk=pk)
-    item.delete()
-    messages.success(request, ('Item has been deleted'))
-    return redirect('/todolist')
+    if 'Cancel' in request.POST:
+        return redirect('/todolist')
+    else:
+        item = List.objects.get(pk=pk)
+        item.delete()
+        messages.success(request, ('Item has been deleted'))
+        return redirect('/todolist')
 
 
 def cross_off(request, pk):
