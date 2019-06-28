@@ -4,9 +4,9 @@
 
     <form class="form my-2 my-lg-0" method="POST">
       {% csrf_token %}
-      <input class="form-control mr-sm-2" type="search" placeholder="Add Item" aria-label="Search"
+      <input class="form-control mr-sm-2" type="search" placeholder="Enter Task" aria-label="Search"
       name="item" maxlength="75"><br>
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Add to List</button>
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Add Task</button>
     </form>
     <br>
 
@@ -36,7 +36,7 @@
               <tr class="table-secondary">
               <td class="striker">{{ things.item }}</td>
               <td><center> <a href="{% url 'todolist:uncross' pk=things.id %}">Yes</a> </center></td>
-              <td><center> <a href="{% url 'todolist:edit' pk=things.id %}">Edit</a> </center></td>              
+              <td><center> <a href="{% url 'todolist:edit' pk=things.id %}">Edit</a> </center></td>
               <td><center> <a href="{% url 'todolist:delete' pk=things.id %}"> Delete</a></center></td>
               </tr>
             {% else %}
