@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django import forms
-from AppBlog.models import PostModel,Comment
+from AppBlog.models import PostModel,CommentModel
 
 
 class PostForm(forms.ModelForm):
@@ -19,8 +19,11 @@ class PostForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
 
     class Meta():
-        model = Comment
+        model = CommentModel
         fields = ('author', 'text')
+        widgets = {'author': forms.TextInput(attrs={'class': 'textinput'}),
+                   'text': forms.Textarea(attrs={'class': 'editable\
+                                                 medium-editor-textares'})}
 
 
 
