@@ -29,7 +29,7 @@ class PostModel(models.Model):
         return self.title
 
 
-class Comment(models.Model):
+class CommentModel(models.Model):
     post = models.ForeignKey('blog.Post', related_name='comments')
     author = models.CharField(max_length=50)
     text = models.TextField()
