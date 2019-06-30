@@ -28,5 +28,5 @@ urlpatterns = [
     url(r'^todolist/', include('AppToDo.urls')),
     url(r'^blog/', include('AppBlog.urls')),
     url(r'accounts/login/$', views.login, name='login'),
-    url(r'accounts/logout/$', views.logout, name='logout', kwargs={'next_page': '/blog/'})
+    url(r'accounts/logout/$', views.logout, name='logout', kwargs={'next_page': '/'})
 ]
