@@ -33,7 +33,7 @@ class CommentModel(models.Model):
     post = models.ForeignKey('AppBlog.PostModel', related_name='comments')
     author = models.CharField(max_length=50)
     text = models.TextField()
-    create_date = models.DateTimeField(default=timezone.now())
+    create_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
 
     def approve(self):
