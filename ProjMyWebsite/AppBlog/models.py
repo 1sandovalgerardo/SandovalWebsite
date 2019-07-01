@@ -11,7 +11,7 @@ class PostModel(models.Model):
 # if multiple authors, code would be different.
     title = models.CharField(max_length=50)
     text = models.TextField()
-    create_date = models.DateTimeField(default=timezone.now())
+    create_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
     def publish(self):
@@ -23,14 +23,14 @@ class PostModel(models.Model):
 
     def get_absolute_url(self):
         # this answers, after a post what page do i show.
-        return reverse('post_detail', kwargs={'pk': self.pk})
+        return reverse('blog:postmodel_detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.title
 
 
 class CommentModel(models.Model):
-    post = models.ForeignKey('blog.Post', related_name='comments')
+    post = models.ForeignKey('AppBlog.PostModel', related_name='comments')
     author = models.CharField(max_length=50)
     text = models.TextField()
     create_date = models.DateTimeField(default=timezone.now())
@@ -41,10 +41,7 @@ class CommentModel(models.Model):
         self.save()
 
     def get_absolute_url(self):
-        return reverse('post_list')
+        return reverse('blog:postmodel_list')
 
     def __str__(self):
         return self.text
-
-
-
