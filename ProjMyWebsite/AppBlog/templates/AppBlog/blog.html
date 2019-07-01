@@ -1,0 +1,18 @@
+{% extends 'AppBlog/blog_base.html'%}
+
+{% block content %}
+<h1 class="display-4">Blog Home</h1>
+    {% for post in postmodel_list %}
+      <p class="lead">
+        <a href="{% url 'blog:postmodel_detail' pk=post.pk %}">
+          {{ post.title }}
+        </a>
+      </p>
+      <p>Published on:{{ post.published_date|date:" M d, Y"}}</p>
+        <!-- <a href="">Comments: {{ post.approve_comments.count }}</a> -->
+
+    {% endfor %}
+</div>
+
+
+{% endblock%}

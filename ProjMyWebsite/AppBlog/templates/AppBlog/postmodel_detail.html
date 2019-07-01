@@ -1,0 +1,73 @@
+{% extends 'AppBlog/blog_base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+  {% if postmodel.published_date %}
+    <h3 class="posttitle">{{postmodel.title}}</h3>
+    <div class="date postdate">
+      {{ postmodel.published_date}}
+    </div>
+    <br>
+    <h5> <p class="postcontent"> {{postmodel.text}}</p></h5>
+    <!-- <hr> -->
+    <br>
+    <a class="btn btn-primary" href="{% url 'blog:postmodel_list' %}">
+      Back
+    </a>
+    <a class="btn btn-secondary" href="{% url 'blog:postmodel_edit' pk=postmodel.pk %}">
+      Edit
+    </a>
+    <a class="btn btn-secondary" href="{% url 'blog:postmodel_remove' pk=postmodel.pk %}">
+      Delete
+    </a>
+  {% else %}
+    <h3 class="posttitle">{{postmodel.title}}</h3>
+    <div class="date postdate">
+      Not Published Yet
+    </div>
+    <h5> <p class="postcontent"> {{postmodel.text}}</p></h5>
+    <hr>
+    <a class="btn btn-primary" href="{% url 'blog:postmodel_publish' pk=postmodel.pk %}">
+      Publish
+    </a>
+    <a class="btn btn-secondary" href="{% url 'blog:postmodel_edit' pk=postmodel.pk %}">
+      Edit
+    </a>
+    <a class="btn btn-secondary" href="{% url 'blog:postmodel_remove' pk=postmodel.pk %}">
+      Delete
+    </a>
+  {% endif %}
+{% else %}
+  <h3 class="posttitle">{{postmodel.title}}</h3>
+  <div class="date postdate">
+    {{ postmodel.published_date}}
+  </div>
+  <h5> <p class="postcontent"> {{postmodel.text}}</p></h5>
+  <hr>
+  <a class="btn btn-primary" href="{% url 'blog:postmodel_list' %}">
+    Back
+  </a>
+{% endif %}
+
+<br> <hr> <br>
+
+<a class="btn btn-primary btn-comment" href="{% url 'blog:add_comment_to_postmodel' pk=postmodel.pk %}">
+  Add Comment
+</a>
+
+
+{% for comment in postmodel.comments.all %}
+  {% if comment %}
+    <br>
+    {{ comment.author }}:
+    {{ comment.create_date }}
+    <br>
+  {{ comment.text}}
+    {% endif %}
+{% empty %}
+    <p>No Comments</p>
+{% endfor %}
+
+
+{% endblock %}

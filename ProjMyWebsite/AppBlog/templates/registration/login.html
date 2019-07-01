@@ -6,21 +6,16 @@
   <h1 class="display-4">Please Login</h1>
   {% if form.errors %}
     <p>The username or password where incorrect.</p>
-  {% endif% }
+  {% endif %}
 
   <form action="{% url 'login' %}" method="POST">
     {% csrf_token %}
     <div class="form-group">
 
-    {% form.as_p%}
+    {{ form.as_p }}
     <input type="submit" class="btn btn-secondary" value="Login">
     <input type="hidden" name="next" value="{{next}}">
-  </div>    
+  </div>
   </form>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-</div>
 
 {% endblock %}
