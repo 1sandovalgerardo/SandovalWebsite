@@ -21,11 +21,12 @@ class AboutView(TemplateView):
 
 class PostListView(ListView):
     model = PostModel
+    template_name = 'blog.html'
 
     # this function searches the database
     def get_queryset(self):
         return PostModel.objects.filter(published_date__lte=timezone.now())\
-                                        .order_by('-published-date')
+                                        .order_by('-published_date')
 
 
 class PostDetailView(DetailView):
@@ -34,30 +35,30 @@ class PostDetailView(DetailView):
 
 class CreatePostView(LoginRequiredMixin, CreateView):
     login_url = '/login/'
-    redirect_field_name = 'blog/post_detail.html'
+    redirect_field_name = 'blog/postmodel_detail.html'
     form_class = PostForm
     model = PostModel
 
 
 class PostUpdateView(LoginRequiredMixin, UpdateView):
     login_url = '/login/'
-    redirect_field_name = 'blog/post_detail.html'
+    redirect_field_name = 'blog/postmodel_detail.html'
     form_class = PostForm
     model = PostModel
 
 
 class PostDeleteView(LoginRequiredMixin, DeleteView):
     model = PostModel
-    success_url = reverse_lazy('post_list')
+    success_url = reverse_lazy('blog:postmodel_list')
 
 
 class DraftListView(LoginRequiredMixin, ListView):
     login_url = '/login/'
-    redirect_field_name = 'blog/post_list.html'
+    redirect_field_name = 'blog/postmodel_list.html'
     model = PostModel
 
     def get_queryset(self):
-        return PostModel.objects.filter(publised_date__isnull=True).order_by('created_date')
+        return PostModel.objects.filter(published_date__isnull=True).order_by('created_date')
 
 
 # These views are for the comments section of the page.
@@ -66,7 +67,7 @@ class DraftListView(LoginRequiredMixin, ListView):
 def post_publish(request, pk):
     post = get_object_or_404(PostModel, pk=pk)
     post.publish()
-    return redirect('post_detail', pk=pk)
+    return redirect('blog:postmodel_list')
 
 
 # @login_required  uncomment to use this line
@@ -78,31 +79,24 @@ def add_comment_to_post(request, pk):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('blog:postmodel_detail', pk=post.pk)
         else:
             messages.error(request, 'Comment can not be blank')
-            return render(request, 'blog/comment_form.html', {'form': form})
+            return render(request, 'AppBlog/comment_form.html', {'form': form})
 
     else:
         form = CommentForm()
-        return render(request, 'blog/comment_form.html', {'form': form})
+        return render(request, 'AppBlog/comment_form.html', {'form': form})
 
 @login_required
 def comment_approve(request, pk):
     comment = get_object_or_404(CommentModel, pk=pk)
     comment.approve()
-    return redirect('post_detail', pk=comment.post.pk)
+    return redirect('blog:postmodel_detail', pk=comment.post.pk)
 
 @login_required
 def comment_remove(request, pk):
     comment = get_object_or_404(CommentMode, pk=pk)
     post_pk = comment.post.pk
     comment.delete()
-    return redirect('post_detail', pk=post_pk)
-
-
-
-
-
-
-
+    return redirect('blog:postmodel_detail', pk=post_pk)
