@@ -4,15 +4,21 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Here are some samples:</h1>
-    <p class="lead">Check back weekly. I am updating this as I create more projects.</p>
     <ul>
       <li> <a href="{% url 'todolist:todolist' %}">To Do List</a> </li>
+        <ul>
+          <li><a href="https://github.com/1sandovalgerardo/SandovalWebsite/tree/master/ProjMyWebsite/AppToDo">
+           To Do List Source Code</a>
+          </li>
+       </ul>
       <li> <a href="{% url 'blog:postmodel_list' %}">Blog</a> </li>
-      <li>Next: Currently working on running some SPX data to see how much price movement exists
-        in the underlying equities over a 30, 60, and 90 day period.
-      </li>
-
+        <ul>
+          <li> <a href="https://github.com/1sandovalgerardo/SandovalWebsite/tree/master/ProjMyWebsite/AppBlog">
+            Blog Source Code </a>
+          </li>
+        </ul>
     </ul>
   </div>
 </div>
 {% endblock %}
+<!-- Attempt to Update -->

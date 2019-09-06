@@ -3,29 +3,23 @@
 
 {% block content %}
 
+<!-- Intro -->
+
 <div class="jumbotron">
   <div class="container">
     <h1 class="display-4">Welcome to my site!</h1>
     <div class="row">
       <div class="col-md-6">
-        <p class="lead">I have been an investment advisor for the last 10 years.
-          While the roles did include investment analysis and recomendations on a daily basis,
-          the compensation was always based on sales. I am now looking to transition away from sales
-          into a technical role with the python, html, css, and javascript skills i have learned YTD.</p>
-
-      </div>
-      <div class="col-md-6">
-        <p class="lead">My responsibilites have included:
-            <ul class="lead">
-              <li>Creating seven fund of funds using daily liquid
-            vehicles(mutual funds, etf's, etc) and alternative investments (managed futures, some hedge funds).</li>
-              <li>Develop a manager due-diligence process.</li>
-              <li>Conducted investment proposals, reviews, and presentations to HNWF, UHNWF< and Finance Committess.</li>
-            </ul>
-        </p>
+        <p class="lead">I am searching for a role that will allow me to combine my
+          Python programming skills with my 10 years of investment research and
+          consulting experience. I enjoy studying data and extracting
+          information that you can act on and generate profits from. </p>
       </div>
     </div>
   </div>
+
+   <!-- Resume -->
+
   <hr class="my-4">
   <div class="accordion" id="accordionExample">
     <div class="card">
@@ -40,22 +34,60 @@
       </div>
       <div id="resume" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
         <div class="card-body">
+          <!-- Resume Section Buttons -->
           <p>
-            <button class="btn btn-secondary" type="button" data-toggle='collapse'
-            data-target='#ubs' aria-expanded='false' aria-controls='collapseExample' name="button">
+            <button class="btn btn-primary" type="button" data-toggle='collapse'
+            data-target='#programming' aria-expanded='false' aria-controls='collapseExample' name="button"
+            href="#collapseExample">
+            Programming Courses Completed
+            </button>
+            <button class="btn btn-primary" type="button" data-toggle='collapse'
+            data-target='#ubs' aria-expanded='false' aria-controls='collapseExample' name="button"
+            href="#collapseExample">
             UBS
             </button>
-            <button class="btn btn-secondary" type="button" data-toggle='collapse'
-            data-target='#jpm' aria-expanded='false' aria-controls='collapseExapmle' name="button">
-            JPM Private Bank
+            <button class="btn btn-primary" type="button" data-toggle='collapse'
+            data-target='#jpm' aria-expanded='false' aria-controls='collapseExapmle' name="button"
+            href="#collapseExample">
+            JP Morgan Private Bank
             </button>
-            <button class="btn btn-secondary" type="button" data-toggle='collapse'
-            data-target='#ml' aria-expanded='false' aria-controls='collapseExapmle' name="button">
+            <button class="btn btn-primary" type="button" data-toggle='collapse'
+            data-target='#ml' aria-expanded='false' aria-controls='collapseExapmle' name="button"
+            href="#collapseExample">
             Merrill Lynch
             </button>
           </p>
+          <!-- Resume Section Body -->
+          <div class="collapse" id="programming">
+            <div class="card card-body">
+              <h3>Programming Courses I have completed:</h3>
+              <ul>
+                MIT OpenCourseWare
+                <ul>
+                  <li>Introduction to Computer Science and Programming in Python</li>
+                  <li>Introduction to Computational Thinking and Data Science</li>
+                </ul>
+                Udemy
+                <ul>
+                  <li>Python and Django Full Stack Web Developer Bootcamp by Pierian Data</li>
+                  <li>Python for Financial Analysis and Algorithmic Trading by Pierian Data</li>
+                  <li>Python for Finance: Investment Fundamentals & Data Analytics by 365 Careers </li>
+                  <li>Python OOP: Four Pillars of OOP in Python by Febin George</li>
+                </ul>
+                EdX
+                <ul>
+                  <li>Probability and Statistics in Data Science using Python by UCSD X</li>
+                  <li>Python for Data Science by UCSD X</li>
+                  <li>Introduction to Python: Creating Scalable, Robust, Interactive Code by Microsoft</li>
+                </ul>
+              </ul>
+
+            </div>
+
+          </div>
           <div class="collapse" id="ubs">
             <div class="card card-body">
+              <h3>UBS</h3>
               <ul>
                 <li>Contributed in growing practice from 40MM AUM to over 95MM AUM by providing
                 in-depth needs based analysis.</li>
@@ -77,6 +109,7 @@
           </div>
           <div class="collapse" id="jpm">
             <div class="card card-body">
+              <h3>JP Morgan Private Bank</h3>
               <ul>
                 <li>Responsible for a book of over 150MM in client positions.</li>
                 <li>Developed investment policy statements for our client’s. </li>
@@ -88,6 +121,7 @@
           </div>
           <div class="collapse" id="ml">
             <div class="card card-body">
+              <h3>Merrill Lynch</h3>
               <ul>
                 <li>Educated small business owners on Merrill Edge’s retirement plan solutions (401ks, Simple IRA, SEPs).</li>
                 <li>Educated investors on investment topics including but not limited to: margin, fixed income, trade process,
