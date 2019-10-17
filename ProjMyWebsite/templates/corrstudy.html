@@ -1,5 +1,58 @@
 {% extends 'base.html' %}
   {% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">Correlation Study Tools</h1>
+  <p class="lead">These tools were created to assist in finding periods of high
+    correlation between different stocks or within a stock's price movement (seasonality).
+  </p>
+  <p class="lead"> Here is the link to the source code:
+    <a href="https://github.com/1sandovalgerardo/SPY_Underlying_Study">Correlation Study</a>
+  </p>
+
+  <p class="lead">Here are three stocks that have some seasonality in their price movement.</p>
+</div>
+  <table class='table table-bordered table-sm'>
+    <thead>
+      <tr>
+        <th scope="col">Stock</th>
+        <th scope="col">Period</th>
+        <th scope="col">Number Winners</th>
+        <th scope="col">Number Losers</th>
+        <th scope="col">Total Trades</th>
+        <th scope="col">Avg Return on Winners</th>
+        <th scope="col">Avg Return on Loosers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">GOOG</td>
+        <td scope="row">Aug-Nov</td>
+        <td scope="row">11</td>
+        <td scope="row">3</td>
+        <td scope="row">14</td>
+        <td scope="row">15.95%</td>
+        <td scope="row">-13.26%</td>
+      </tr>
+      <tr>
+        <td scope="row">MSFT</td>
+        <td scope="row">Oct-Dec</td>
+        <td scope="row">11</td>
+        <td scope="row">3</td>
+        <td scope="row">14</td>
+        <td scope="row">11.92%</td>
+        <td scope="row">-14.12%</td>
+      </tr>
+      <tr>
+        <td scope="row">AAPL</td>
+        <td scope="row">Jun-Sep</td>
+        <td scope="row">12</td>
+        <td scope="row">2</td>
+        <td scope="row">14</td>
+        <td scope="row">16.36%</td>
+        <td scope="row">-11.55%</td>
+      </tr>
+    </tbody>
+  </table>
 
 
 
