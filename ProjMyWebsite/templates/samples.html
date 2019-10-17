@@ -4,21 +4,30 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Here are some samples:</h1>
+    <!-- Start of bullet items -->
     <ul>
+      <li><a href="{% url 'corrstudy:corrstudy' %}">SPY Underlying Seasonality Study</a>
+        <ul>
+          <li> <a href="https://github.com/1sandovalgerardo/SPY_Underlying_Study"> Study Source Code </a> </li>
+        </ul>
+      </li>
       <li> <a href="{% url 'todolist:todolist' %}">To Do List</a> </li>
         <ul>
           <li><a href="https://github.com/1sandovalgerardo/SandovalWebsite/tree/master/ProjMyWebsite/AppToDo">
            To Do List Source Code</a>
           </li>
        </ul>
+      </li>
       <li> <a href="{% url 'blog:postmodel_list' %}">Blog</a> </li>
         <ul>
           <li> <a href="https://github.com/1sandovalgerardo/SandovalWebsite/tree/master/ProjMyWebsite/AppBlog">
             Blog Source Code </a>
           </li>
         </ul>
+      </li>
     </ul>
+    <!-- End of bullet items -->
   </div>
 </div>
 {% endblock %}
-<!-- Attempt to Update -->
+<a href="#"></a>
