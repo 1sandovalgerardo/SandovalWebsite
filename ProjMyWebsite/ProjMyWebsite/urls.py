@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^contact/', include('AppContact.urls')),
     url(r'^todolist/', include('AppToDo.urls')),
     url(r'^blog/', include('AppBlog.urls')),
+    url(r'^corrstudy/', include('AppCorrStudy.urls')),
     url(r'accounts/login/$', views.login, name='login'),
     url(r'accounts/logout/$', views.logout, name='logout', kwargs={'next_page': '/'})
 ]
